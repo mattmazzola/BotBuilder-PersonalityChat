@@ -33,6 +33,40 @@ Personality Chat matches the user's small talk query with a small talk scenario.
 
 Check out the [Editorial Scenarios and sample query for Personality Chat](EditorialScenarioList.md)
 
+## Using the API directly
+
+> This API does not require subscription key.
+
+Request:
+```
+POST https://smarttalk.azure-api.net/api/v1/botframework HTTP/1.1
+Content-Type: application/json
+
+{
+    "query": "Hi, how are you?",
+    "persona": 0
+}
+```
+
+Response:
+```json
+{
+    "ScenarioList": [
+        {
+            "ScenarioName": "Greetings_HowAreYou",
+            "Score": 0.46,
+            "Responses": [
+                "Awesome, thanks.",
+                "I'm good.",
+                "I'm great."
+            ]
+        }
+    ],
+    "IsChatQuery": true,
+    "IsAdult": false,
+    "ElapsedMilliseconds": 764
+}
+```
 
 ### Throttling limits
 We enforce throttling limits on the Personality Chat API at the rate of 30 queries per minute. Throttling is done based on the IP address. 
